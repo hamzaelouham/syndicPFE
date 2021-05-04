@@ -2,8 +2,7 @@
 
 
 @section('title')
-
-    Dashbord admin!
+    admin!
 
 @endsection()
 
@@ -31,7 +30,7 @@
                       </div>
                       <div class="form-group">
                         <label for="approve"> Accepter
-                         <input class="form-control" type="checkbox" name="approve" arie-disabled="{{$isFind->approve ==1 ? true:false}}" >
+                         <input class="form-control" type="checkbox" name="approve"  {{$isFind->approve ==1 ? 'checked':''}} >
                         </label>
                       </div>
                       <div class="from-group">

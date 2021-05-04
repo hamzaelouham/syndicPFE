@@ -25,9 +25,9 @@ Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'index'])->n
 
 Route::get('/admin', 'App\Http\Controllers\AdminController@index')->name('admin');
 
-Route::get('/all-menbre-role', 'App\Http\Controllers\AdminController@allRole');
+Route::get('/all-menbre-role', 'App\Http\Controllers\AdminController@allRole')->name('all');
 
-Route::get('/Edit-role/{id}', 'App\Http\Controllers\AdminController@EditRole');
+Route::get('/Edit-role/{id}', 'App\Http\Controllers\AdminController@EditRole')->name('admin.edit');
 
 Route::put('/update-form/{id}', 'App\Http\Controllers\AdminController@update');
 

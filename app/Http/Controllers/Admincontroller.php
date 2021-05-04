@@ -10,6 +10,8 @@ use Validator;
 
 use App\Models\User;
 
+use App\Notifications\UserApproveNotify;
+
 use Illuminate\Support\Facades\Hash;
 
 
@@ -51,6 +53,7 @@ class Admincontroller extends Controller
     {   
 
         $user = User::find($id);
+        $firstApprovevalue = $user->approve;
         $user->name  = $request->input("name");
         $user->email = $request->input("email");
         $user->role  = $request->input("role");
@@ -59,6 +62,11 @@ class Admincontroller extends Controller
         { $user->approve = 1; }
         else
         { $user->approve = 0;}
+
+        if($firstApprovevalue == 0 && $user->approve == 1)
+        {
+            $user->notify(new UserApproveNotify());
+        }
 
         $user->update();
         

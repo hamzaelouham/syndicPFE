@@ -23,7 +23,7 @@ class Approve
             {
                 Auth::logout();
 
-                return  redirect('/login');
+                return  redirect()->route('login')->with('message',' plase wait approvel by admin !');
             }
         }
 
